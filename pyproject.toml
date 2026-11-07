@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "said-done"
+version = "0.2.0"
+description = "You said it. Now it's done. MCP transcript screening and agent task automation."
+license = {text = "MIT"}
+authors = [{name = "Jimmy2004"}]
+keywords = ["mcp", "voice", "transcript", "automation", "agents", "codex", "claude"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=1.10",
+    "keyring>=25",
+    "pydantic>=2.8,<3",
+    "httpx>=0.27,<1",
+    "python-dotenv>=1,<2",
+    "python-docx>=1.1,<2",
+    "pypdf>=5,<7",
+]
+
+[project.urls]
+Homepage = "https://github.com/Jimmy2004/said-done"
+Repository = "https://github.com/Jimmy2004/said-done"
+Issues = "https://github.com/Jimmy2004/said-done/issues"
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+said-done = "said_done.main:main"
+said-done-mcp = "said_done.mcp_server:main"
+
+[tool.setuptools.packages.find]
+include = ["said_done*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+# Third-party plugins declare [project.entry-points."said_done.sources"]
+# in their own distribution; no built-in entry points are required here.
+
+[tool.setuptools.package-data]
+said_done = ["docs/AGENT_SETUP.md"]

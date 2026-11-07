@@ -1,0 +1,82 @@
+{
+  "schema_version": 2,
+  "data_dir": "~/.config/said-done/data",
+  "sources": [
+    {
+      "id": "manual",
+      "kind": "manual",
+      "options": {}
+    }
+  ],
+  "classifier": {
+    "kind": "mock",
+    "profile": "default",
+    "base_url": null,
+    "model": null,
+    "effort": null,
+    "extra_body": {},
+    "timeout_seconds": 60.0,
+    "max_attempts": 3,
+    "use_response_format": false,
+    "acknowledge_subscription_risk": false
+  },
+  "screening": {
+    "screening_only": true,
+    "batch": {
+      "heartbeat_interval_seconds": 600,
+      "min_content_chars": 200,
+      "trigger_keywords": [
+        "我要",
+        "我需要",
+        "帮我",
+        "请帮",
+        "取消",
+        "撤销",
+        "已经完成",
+        "已经做完"
+      ],
+      "max_batch_wait_seconds": 1800,
+      "max_batch_segments": 50
+    },
+    "gate": {
+      "allowed_task_types": [
+        "CREATE_DOCUMENT",
+        "CONVERT_FILE",
+        "WRITE_CODE",
+        "MODIFY_FILE"
+      ],
+      "cancel_keywords": [
+        "取消",
+        "撤销",
+        "cancel"
+      ],
+      "completion_keywords": [
+        "已完成",
+        "已经完成",
+        "已经做完",
+        "做完了",
+        "completed"
+      ],
+      "default_document_format": "docx",
+      "default_code_format": "py",
+      "extra_instructions": "",
+      "max_classification_attempts": 3,
+      "retry_delay_seconds": 30
+    }
+  },
+  "executor": {
+    "kind": "mock",
+    "executable": null,
+    "model": null,
+    "effort": null,
+    "timeout_seconds": 900.0,
+    "options": {},
+    "allowed_input_roots": [],
+    "preflight": {
+      "max_scan_files": 5000,
+      "max_scan_depth": 4,
+      "max_scan_seconds": 10.0
+    }
+  },
+  "run_scheduler_in_server": false
+}

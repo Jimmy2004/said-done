@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+config.local.json
+.runtime/
+*.db
+*.db-*
+*.sqlite
+*.sqlite*
+*.log
+__pycache__/
+.pytest_cache/
+.venv/
+*.egg-info/
+dist/
+build/
+.DS_Store
